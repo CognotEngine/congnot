@@ -1,9 +1,9 @@
-<img src="uploads/logo.png" alt="GitHub" style="width: 24px; height: 24px;">
+<img src="uploads/logo.png" alt="GitHub" >
 # Cognot - Advanced AI Workflow Engine
 
 Cognot is an open-source, flexible, and extensible AI Workflow Engine focused on AI image generation and video processing. It empowers users to create, execute, and manage complex AI-driven workflows through an intuitive visual interface.
 
-<img src="uploads/QQ20251211-033113.jpg" alt="GitHub" style="width: 24px; height: 24px;">
+<img src="uploads/QQ20251211-033113.jpg" alt="GitHub" >
 ## Project Status
 
 🚧 **Under Development** 🚧
