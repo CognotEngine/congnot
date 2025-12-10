@@ -1,0 +1,2275 @@
+{
+  "TextInput": {
+    "name": "TextInput",
+    "description": "Text Input Node - Provides text input functionality",
+    "inputs": {
+      "text": "string"
+    },
+    "outputs": {
+      "output": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "text": {
+          "default": "",
+          "description": "Enter text",
+          "title": "Text",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "output": {
+          "title": "Output",
+          "type": "string"
+        }
+      },
+      "required": [
+        "output"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "basic",
+    "icon": "馃摑",
+    "is_class": true
+  },
+  "FileInput": {
+    "name": "FileInput",
+    "description": "File Input Node - Reads file content as input",
+    "inputs": {
+      "file_path": "string",
+      "encoding": "string"
+    },
+    "outputs": {
+      "content": "string",
+      "file_name": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "file_path": {
+          "default": "",
+          "description": "File path",
+          "title": "File Path",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "encoding": {
+          "default": "utf-8",
+          "description": "File encoding",
+          "title": "Encoding",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "utf-8",
+              "gbk",
+              "latin-1"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "utf-8",
+                "gbk",
+                "latin-1"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "content": {
+          "title": "Content",
+          "type": "string"
+        },
+        "file_name": {
+          "title": "File Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "content",
+        "file_name"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "input",
+    "icon": "馃搧",
+    "is_class": true
+  },
+  "ClipTextEncode": {
+    "name": "CLIP Text Encode (Prompt)",
+    "description": "CLIP Text Encode Node - Encodes text prompts into CLIP embeddings",
+    "inputs": {
+      "clip": "clip"
+    },
+    "outputs": {
+      "Conditioning": "conditioning"
+    },
+    "input_schema": {
+      "properties": {
+        "prompt": {
+          "default": "",
+          "description": "Enter text prompt",
+          "title": "Prompt",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "textarea"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "textarea",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "Conditioning": {
+          "title": "Conditioning",
+          "type": "conditioning"
+        }
+      },
+      "required": [
+        "Conditioning"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "ai",
+    "icon": "馃搱",
+    "is_class": true
+  },
+  "APIInput": {
+    "name": "APIInput",
+    "description": "API Input Node - Fetches data from API",
+    "inputs": {
+      "url": "string",
+      "method": "string",
+      "headers": "object"
+    },
+    "outputs": {
+      "response": "object",
+      "status": "integer"
+    },
+    "input_schema": {
+      "properties": {
+        "url": {
+          "default": "",
+          "description": "API URL",
+          "title": "Url",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "method": {
+          "default": "GET",
+          "description": "Request method",
+          "title": "Method",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "GET",
+              "POST",
+              "PUT",
+              "DELETE"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "headers": {
+          "additionalProperties": true,
+          "default": "{}",
+          "description": "Request headers",
+          "title": "Headers",
+          "type": "object",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "response": {
+          "additionalProperties": true,
+          "title": "Response",
+          "type": "object"
+        },
+        "status": {
+          "title": "Status",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "response",
+        "status"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "input",
+    "icon": "馃寪",
+    "is_class": true
+  },
+  "DatabaseInput": {
+    "name": "DatabaseInput",
+    "description": "Database Input Node - Queries data from database",
+    "inputs": {
+      "query": "string",
+      "connection": "object"
+    },
+    "outputs": {
+      "results": "array",
+      "count": "integer"
+    },
+    "input_schema": {
+      "properties": {
+        "query": {
+          "default": "",
+          "description": "SQL query",
+          "title": "Query",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_area"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_area",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "connection": {
+          "additionalProperties": true,
+          "default": "{}",
+          "description": "Database connection configuration",
+          "title": "Connection",
+          "type": "object",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "results": {
+          "items": {},
+          "title": "Results",
+          "type": "array"
+        },
+        "count": {
+          "title": "Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "results",
+        "count"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "input",
+    "icon": "馃梽锔?",
+    "is_class": true
+  },
+  "TextProcessing": {
+    "name": "TextProcessing",
+    "description": "Text Processing Node - Performs text conversion and processing operations",
+    "inputs": {
+      "text": "string",
+      "operation": "string",
+      "params": "object"
+    },
+    "outputs": {
+      "result": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "text": {
+          "default": null,
+          "description": "Input text",
+          "title": "Text",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "operation": {
+          "default": "uppercase",
+          "description": "Operation type",
+          "title": "Operation",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "uppercase",
+              "lowercase",
+              "trim",
+              "split",
+              "replace",
+              "length"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "uppercase",
+                "lowercase",
+                "trim",
+                "split",
+                "replace",
+                "length"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "params": {
+          "additionalProperties": true,
+          "default": "{}",
+          "description": "Operation parameters",
+          "title": "Params",
+          "type": "object",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "processing",
+    "icon": "馃敜",
+    "is_class": true
+  },
+  "MathOperation": {
+    "name": "MathOperation",
+    "description": "Math Operation Node - Performs basic math operations",
+    "inputs": {
+      "a": "number",
+      "b": "number",
+      "operation": "string"
+    },
+    "outputs": {
+      "result": "number"
+    },
+    "input_schema": {
+      "properties": {
+        "a": {
+          "default": null,
+          "description": "First operand",
+          "title": "A",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "b": {
+          "default": null,
+          "description": "Second operand",
+          "title": "B",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "operation": {
+          "default": "add",
+          "description": "Operation type",
+          "title": "Operation",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "add",
+              "subtract",
+              "multiply",
+              "divide",
+              "power",
+              "modulus"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "add",
+                "subtract",
+                "multiply",
+                "divide",
+                "power",
+                "modulus"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "number"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "processing",
+    "icon": "馃敘",
+    "is_class": true
+  },
+  "Filter": {
+    "name": "Filter",
+    "description": "Data Filter Node - Filters data based on conditions",
+    "inputs": {
+      "data": "list",
+      "condition": "str",
+      "field": "str"
+    },
+    "outputs": {
+      "filtered": "list"
+    },
+    "category": "processing",
+    "icon": "馃攳",
+    "function_name": "filter_node",
+    "is_class": false
+  },
+  "Transform": {
+    "name": "Transform",
+    "description": "Data Transform Node - Transforms data structure",
+    "inputs": {
+      "data": "any",
+      "transform_type": "str",
+      "mapping": "dict"
+    },
+    "outputs": {
+      "transformed": "any"
+    },
+    "category": "processing",
+    "icon": "馃攧",
+    "function_name": "transform_node",
+    "is_class": false
+  },
+  "AIProcessing": {
+    "name": "AIProcessing",
+    "description": "AI Processing Node - Performs AI-related processing tasks",
+    "inputs": {
+      "input_data": "any",
+      "ai_model": "str",
+      "prompt": "str"
+    },
+    "outputs": {
+      "result": "any",
+      "confidence": "float"
+    },
+    "category": "processing",
+    "icon": "馃",
+    "function_name": "ai_processing_node",
+    "is_class": false
+  },
+  "TextOutput": {
+    "name": "TextOutput",
+    "description": "Text Output Node - Outputs results as text",
+    "inputs": {
+      "value": "str"
+    },
+    "outputs": {
+      "result": "str"
+    },
+    "category": "output",
+    "icon": "馃摑",
+    "function_name": "text_output_node",
+    "is_class": false
+  },
+  "FileOutput": {
+    "name": "FileOutput",
+    "description": "File Output Node - Saves results to file (supports text and images)",
+    "inputs": {
+      "content": "str",
+      "file_path": "str",
+      "encoding": "str",
+      "is_image": "bool"
+    },
+    "outputs": {
+      "success": "bool",
+      "message": "str"
+    },
+    "category": "output",
+    "icon": "馃捑",
+    "function_name": "file_output_node",
+    "is_class": false
+  },
+  "APIOutput": {
+    "name": "APIOutput",
+    "description": "API Output Node - Sends results to API",
+    "inputs": {
+      "data": "any",
+      "url": "str",
+      "method": "str",
+      "headers": "dict"
+    },
+    "outputs": {
+      "success": "bool",
+      "status": "int",
+      "response": "any"
+    },
+    "category": "output",
+    "icon": "馃摗",
+    "function_name": "api_output_node",
+    "is_class": false
+  },
+  "DatabaseOutput": {
+    "name": "DatabaseOutput",
+    "description": "Database Output Node - Saves results to database",
+    "inputs": {
+      "data": "list",
+      "table": "str",
+      "connection": "dict"
+    },
+    "outputs": {
+      "success": "bool",
+      "count": "int",
+      "message": "str"
+    },
+    "category": "output",
+    "icon": "馃捊",
+    "function_name": "database_output_node",
+    "is_class": false
+  },
+  "Branch": {
+    "name": "Branch",
+    "description": "Branch Node - Executes different branches based on conditions",
+    "inputs": {
+      "condition": "boolean",
+      "true_branch": "string",
+      "false_branch": "string"
+    },
+    "outputs": {
+      "result": "boolean",
+      "next_branch": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "condition": {
+          "default": false,
+          "description": "Condition expression",
+          "title": "Condition",
+          "type": "boolean",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "toggle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "toggle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "true_branch": {
+          "default": "",
+          "description": "Branch when condition is true",
+          "title": "True Branch",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "false_branch": {
+          "default": "",
+          "description": "Branch when condition is false",
+          "title": "False Branch",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "boolean"
+        },
+        "next_branch": {
+          "title": "Next Branch",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result",
+        "next_branch"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "control",
+    "icon": "馃攢",
+    "is_class": true
+  },
+  "Parallel": {
+    "name": "Parallel",
+    "description": "Parallel Execution Node - Executes multiple tasks in parallel",
+    "inputs": {
+      "tasks": "array",
+      "max_workers": "integer"
+    },
+    "outputs": {
+      "results": "array",
+      "completed": "integer"
+    },
+    "input_schema": {
+      "properties": {
+        "tasks": {
+          "default": "[]",
+          "description": "Task list",
+          "items": {},
+          "title": "Tasks",
+          "type": "array",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "max_workers": {
+          "default": 4,
+          "description": "Maximum number of workers",
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Max Workers",
+          "type": "integer",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": 16.0,
+            "min_value": 1.0,
+            "options": null,
+            "step": 1.0,
+            "widget_type": "slider"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "slider",
+              "label": null,
+              "min_value": 1.0,
+              "max_value": 16.0,
+              "step": 1.0,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "results": {
+          "items": {},
+          "title": "Results",
+          "type": "array"
+        },
+        "completed": {
+          "title": "Completed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "results",
+        "completed"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "control",
+    "icon": "鈿?",
+    "is_class": true
+  },
+  "Loop": {
+    "name": "Loop",
+    "description": "Loop Node - Repeats task execution until condition is met",
+    "inputs": {
+      "iterable": "array",
+      "condition": "string",
+      "max_iterations": "integer"
+    },
+    "outputs": {
+      "results": "array",
+      "iterations": "integer"
+    },
+    "input_schema": {
+      "properties": {
+        "iterable": {
+          "default": "[]",
+          "description": "Iterable object",
+          "items": {},
+          "title": "Iterable",
+          "type": "array",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "condition": {
+          "default": "all",
+          "description": "Loop condition",
+          "title": "Condition",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "all",
+              "any",
+              "first_n"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "all",
+                "any",
+                "first_n"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "max_iterations": {
+          "default": 100,
+          "description": "Maximum number of iterations",
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Iterations",
+          "type": "integer",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": 1000.0,
+            "min_value": 1.0,
+            "options": null,
+            "step": 1.0,
+            "widget_type": "slider"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "slider",
+              "label": null,
+              "min_value": 1.0,
+              "max_value": 1000.0,
+              "step": 1.0,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "results": {
+          "items": {},
+          "title": "Results",
+          "type": "array"
+        },
+        "iterations": {
+          "title": "Iterations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "results",
+        "iterations"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "control",
+    "icon": "馃攧",
+    "is_class": true
+  },
+  "input": {
+    "name": "input",
+    "description": "Input Node - Provides data input",
+    "inputs": {
+      "value": "string"
+    },
+    "outputs": {
+      "value": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "value": {
+          "default": "",
+          "description": "Input value",
+          "title": "Value",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "basic",
+    "icon": "馃摜",
+    "is_class": true
+  },
+  "output": {
+    "name": "output",
+    "description": "Output Node - Displays processing results",
+    "inputs": {
+      "value": "string"
+    },
+    "outputs": {
+      "result": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "value": {
+          "default": null,
+          "description": "Input value",
+          "title": "Value",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "basic",
+    "icon": "馃摛",
+    "is_class": true
+  },
+  "processing": {
+    "name": "processing",
+    "description": "Processing Node - Performs data processing operations",
+    "inputs": {
+      "value": "string",
+      "operation": "string",
+      "extra": "string"
+    },
+    "outputs": {
+      "result": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "value": {
+          "default": null,
+          "description": "Input value",
+          "title": "Value",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "operation": {
+          "default": "uppercase",
+          "description": "Operation type",
+          "title": "Operation",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "uppercase",
+              "lowercase",
+              "concat",
+              "reverse",
+              "length"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "uppercase",
+                "lowercase",
+                "concat",
+                "reverse",
+                "length"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "extra": {
+          "default": "",
+          "description": "Extra parameter",
+          "title": "Extra",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "text_input"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "text_input",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "basic",
+    "icon": "鈿欙笍",
+    "is_class": true
+  },
+  "AddNumbers": {
+    "name": "AddNumbers",
+    "description": "Add two numbers",
+    "inputs": {
+      "a": "number",
+      "b": "number"
+    },
+    "outputs": {
+      "result": "number"
+    },
+    "input_schema": {
+      "properties": {
+        "a": {
+          "default": null,
+          "description": "First number",
+          "title": "A",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "b": {
+          "default": null,
+          "description": "Second number",
+          "title": "B",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "number"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "math",
+    "icon": "鉃?",
+    "is_class": true
+  },
+  "MultiplyNumbers": {
+    "name": "MultiplyNumbers",
+    "description": "Multiply two numbers",
+    "inputs": {
+      "a": "number",
+      "b": "number"
+    },
+    "outputs": {
+      "result": "number"
+    },
+    "input_schema": {
+      "properties": {
+        "a": {
+          "default": null,
+          "description": "First number",
+          "title": "A",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "b": {
+          "default": null,
+          "description": "Second number",
+          "title": "B",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "number"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "math",
+    "icon": "鉁栵笍",
+    "is_class": true
+  },
+  "ConcatenateStrings": {
+    "name": "ConcatenateStrings",
+    "description": "Concatenate two strings",
+    "inputs": {
+      "str1": "string",
+      "str2": "string"
+    },
+    "outputs": {
+      "result": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "str1": {
+          "default": null,
+          "description": "First string",
+          "title": "Str1",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "str2": {
+          "default": null,
+          "description": "Second string",
+          "title": "Str2",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "result": {
+          "title": "Result",
+          "type": "string"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "string",
+    "icon": "馃敆",
+    "is_class": true
+  },
+  "CompareNumbers": {
+    "name": "CompareNumbers",
+    "description": "Compare two numbers and return result",
+    "inputs": {
+      "a": "number",
+      "b": "number"
+    },
+    "outputs": {
+      "greater": "boolean",
+      "equal": "boolean",
+      "less": "boolean"
+    },
+    "input_schema": {
+      "properties": {
+        "a": {
+          "default": null,
+          "description": "First number",
+          "title": "A",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "b": {
+          "default": null,
+          "description": "Second number",
+          "title": "B",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "greater": {
+          "title": "Greater",
+          "type": "boolean"
+        },
+        "equal": {
+          "title": "Equal",
+          "type": "boolean"
+        },
+        "less": {
+          "title": "Less",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "greater",
+        "equal",
+        "less"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "logic",
+    "icon": "馃搳",
+    "is_class": true
+  },
+  "Sampler": {
+    "name": "Sampler",
+    "description": "Sampler Node - Sampler for Stable Diffusion image generation",
+    "inputs": {
+      "model": "string",
+      "positive": "string",
+      "negative": "string",
+      "steps": "integer",
+      "sampler_name": "string",
+      "cfg": "number",
+      "seed": "integer"
+    },
+    "outputs": {
+      "latent": "string",
+      "info": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "model": {
+          "default": null,
+          "description": "Model",
+          "title": "Model",
+          "type": "string",
+          "widget_meta": {
+            "color_type": "model",
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": "model",
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "positive": {
+          "default": null,
+          "description": "Positive prompt",
+          "title": "Positive",
+          "type": "string",
+          "widget_meta": {
+            "color_type": "clip",
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": "clip",
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "negative": {
+          "default": null,
+          "description": "Negative prompt",
+          "title": "Negative",
+          "type": "string",
+          "widget_meta": {
+            "color_type": "clip",
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": "clip",
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        },
+        "steps": {
+          "default": 20,
+          "description": "Sampling steps",
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Steps",
+          "type": "integer",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": 100.0,
+            "min_value": 1.0,
+            "options": null,
+            "step": 1.0,
+            "widget_type": "slider"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "slider",
+              "label": null,
+              "min_value": 1.0,
+              "max_value": 100.0,
+              "step": 1.0,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "sampler_name": {
+          "default": "Euler",
+          "description": "Sampler name",
+          "title": "Sampler Name",
+          "type": "string",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": [
+              "Euler",
+              "Euler a",
+              "DPM++ 2M Karras",
+              "DPM++ 2S a Karras",
+              "LMS",
+              "Heun",
+              "DDIM",
+              "PLMS"
+            ],
+            "step": null,
+            "widget_type": "combo"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "combo",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": [
+                "Euler",
+                "Euler a",
+                "DPM++ 2M Karras",
+                "DPM++ 2S a Karras",
+                "LMS",
+                "Heun",
+                "DDIM",
+                "PLMS"
+              ],
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "cfg": {
+          "default": 7.5,
+          "description": "CFG value",
+          "maximum": 30.0,
+          "minimum": 1.0,
+          "title": "Cfg",
+          "type": "number",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": 30.0,
+            "min_value": 1.0,
+            "options": null,
+            "step": 0.5,
+            "widget_type": "slider"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "slider",
+              "label": null,
+              "min_value": 1.0,
+              "max_value": 30.0,
+              "step": 0.5,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        },
+        "seed": {
+          "default": 12345,
+          "description": "Random seed",
+          "maximum": 9999999999,
+          "minimum": 0,
+          "title": "Seed",
+          "type": "integer",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "auto",
+            "label": null,
+            "max_value": 9999999999.0,
+            "min_value": 0.0,
+            "options": null,
+            "step": 1.0,
+            "widget_type": "slider"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "slider",
+              "label": null,
+              "min_value": 0.0,
+              "max_value": 9999999999.0,
+              "step": 1.0,
+              "options": null,
+              "color_type": null,
+              "display_mode": "auto"
+            },
+            "render_as": "widget"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "latent": {
+          "title": "Latent",
+          "type": "string"
+        },
+        "info": {
+          "title": "Info",
+          "type": "string"
+        }
+      },
+      "required": [
+        "latent",
+        "info"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "ai",
+    "icon": "鈿?",
+    "is_class": true
+  },
+  "BaseConfigExample": {
+    "name": "BaseConfigExample",
+    "description": "Example of a base configuration node",
+    "inputs": {
+      "input": "any"
+    },
+    "outputs": {
+      "output": "string"
+    },
+    "input_schema": {
+      "properties": {
+        "input": {
+          "default": null,
+          "description": "Input",
+          "title": "Input",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "output": {
+          "title": "Output",
+          "type": "string"
+        }
+      },
+      "required": [
+        "output"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "Examples",
+    "icon": "馃枍锔?",
+    "is_class": true
+  },
+  "PreviewOutputExample": {
+    "name": "PreviewOutputExample",
+    "description": "Example of a preview/output node",
+    "inputs": {
+      "image_data": "any"
+    },
+    "outputs": {},
+    "input_schema": {
+      "properties": {
+        "image_data": {
+          "default": null,
+          "description": "Image Data",
+          "title": "Image Data",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {},
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "Examples",
+    "icon": "馃柤锔?",
+    "is_class": true
+  },
+  "ControlNodeExample": {
+    "name": "ControlNodeExample",
+    "description": "Example of a control node with various UI elements",
+    "inputs": {
+      "input_data": "any"
+    },
+    "outputs": {
+      "output": "object"
+    },
+    "input_schema": {
+      "properties": {
+        "input_data": {
+          "default": null,
+          "description": "Input",
+          "title": "Input Data",
+          "widget_meta": {
+            "color_type": null,
+            "display_mode": "handle",
+            "label": null,
+            "max_value": null,
+            "min_value": null,
+            "options": null,
+            "step": null,
+            "widget_type": "handle"
+          },
+          "metadata": {
+            "widget_meta": {
+              "widget_type": "handle",
+              "label": null,
+              "min_value": null,
+              "max_value": null,
+              "step": null,
+              "options": null,
+              "color_type": null,
+              "display_mode": "handle"
+            },
+            "render_as": "handle"
+          }
+        }
+      },
+      "required": []
+    },
+    "output_schema": {
+      "properties": {
+        "output": {
+          "additionalProperties": true,
+          "title": "Output",
+          "type": "object"
+        }
+      },
+      "required": [
+        "output"
+      ],
+      "title": "Outputs",
+      "type": "object"
+    },
+    "category": "Examples",
+    "icon": "鈿欙笍",
+    "is_class": true
+  }
+}

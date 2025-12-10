@@ -1,0 +1,27 @@
+# Core Engine Dependencies (AI绘图和视频处理所需)
+pydantic>=2.0.0  # Type validation
+pyyaml>=6.0  # YAML parsing
+
+# API Layer Dependencies (AI功能所需接口)
+fastapi>=0.100.0  # REST API framework
+uvicorn>=0.20.0  # ASGI server
+websockets>=11.0  # WebSocket support
+
+# Optional Dependencies (AI功能所需)
+loguru>=0.7.0  # Logging
+
+# Stable Diffusion Dependencies (AI绘图)
+diffusers>=0.26.0  # SD model implementation
+torch>=2.0.0  # PyTorch for GPU acceleration
+torchvision>=0.15.0  # Computer vision utilities
+accelerate>=0.25.0  # Hardware acceleration support
+safetensors>=0.4.0  # Safe tensor loading
+
+# WAN2.2 Video Dependencies (AI视频)
+pillow>=10.0.0  # Image processing
+opencv-python>=4.8.0  # Video processing
+transformers>=4.38.0  # For model architecture
+
+# FFmpeg Dependencies (视频处理)
+imageio-ffmpeg>=0.4.9  # Provides FFmpeg binaries
+
