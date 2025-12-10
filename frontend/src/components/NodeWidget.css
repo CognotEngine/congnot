@@ -1,0 +1,188 @@
+.node-widget {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.node-widget-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a0a0a0;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.node-widget-control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.node-widget-input {
+  width: 100%;
+  padding: 4px 6px;
+  background-color: #1e1e1e;
+  border: 1px solid #454545;
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-size: 13px;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.node-widget-input:focus {
+  outline: none;
+  border-color: #7b68ee;
+  box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.2);
+  background-color: #252525;
+}
+
+.node-widget-input-text {
+  
+}
+
+.node-widget-input-number {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.node-widget-input-small {
+  width: 60px;
+  padding: 3px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: #1a1a1a;
+  border: 1px solid #3a3a3a;
+}
+
+.node-widget-slider-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.node-widget-slider {
+  flex: 1;
+  height: 8px;
+  background-color: #404040;
+  border-radius: 4px;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.node-widget-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #7b68ee;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 2px solid #3d3d3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.node-widget-slider::-webkit-slider-thumb:hover {
+  background-color: #9370db;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.node-widget-slider::-webkit-slider-thumb:active {
+  background-color: #8a2be2;
+  transform: scale(0.95);
+}
+
+.node-widget-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: #7b68ee;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #3d3d3d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease;
+}
+
+.node-widget-slider::-moz-range-thumb:hover {
+  background-color: #9370db;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.node-widget-slider::-moz-range-thumb:active {
+  background-color: #8a2be2;
+  transform: scale(0.95);
+}
+
+.node-widget-select {
+  width: 100%;
+  padding: 4px 22px 4px 6px;
+  background-color: #1e1e1e;
+  border: 1px solid #454545;
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+}
+
+.node-widget-select:focus {
+  outline: none;
+  border-color: #7b68ee;
+  box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.2);
+  background-color: #252525;
+}
+
+.node-widget-select:hover {
+  border-color: #666;
+  background-color: #222;
+}
+
+.node-widget-select option {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  padding: 8px;
+  border-radius: 0;
+}
+
+.node-widget-select option:hover {
+  background-color: #3d3d3d;
+}
+
+.node-widget-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #7b68ee;
+  transition: all 0.15s ease;
+}
+
+.node-widget-checkbox:hover {
+  transform: scale(1.1);
+}
+
+.node-widget-description {
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+  line-height: 1.3;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 2.6em;
+}

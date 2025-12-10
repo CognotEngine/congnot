@@ -1,0 +1,107 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 过渡效果 */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* 阴影效果 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* 暗色主题 */
+:root {
+  /* 基础设置 */
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  /* 主题颜色 - 灰色系 */
+  --bg-primary: #2d2d2d;
+  --bg-secondary: #3a3a3a;
+  --bg-tertiary: #474747;
+  --bg-hover: #404040;
+  --border-color: #555555;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --primary-color: #606060;
+  --primary-hover: #707070;
+  --secondary-color: #757575;
+  --secondary-hover: #858585;
+  --success-color: #4caf50;
+  --success-hover: #43a047;
+  --info-color: #2196f3;
+  --info-hover: #1e88e5;
+  --warning-color: #ff9800;
+  --warning-hover: #f57c00;
+  --danger-color: #f44336;
+  --danger-hover: #e53935;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(145deg, var(--border-color), #454545);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(145deg, #454545, var(--border-color));
+}
+
+/* 选择文本样式 */
+::selection {
+  background: rgba(96, 96, 96, 0.3);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: rgba(96, 96, 96, 0.3);
+  color: var(--text-primary);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a1a 100%);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow: hidden;
+}

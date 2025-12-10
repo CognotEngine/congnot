@@ -1,0 +1,224 @@
+/* QueueMonitor.css */
+
+.queue-monitor-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.queue-monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.queue-monitor-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.refresh-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.refresh-controls label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.refresh-controls select {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-controls select:hover {
+  border-color: var(--primary-color);
+  background-color: var(--bg-hover);
+}
+
+/* Queue Statistics */
+.queue-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background-color: var(--bg-primary);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.stat-title {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-value.queued {
+  color: var(--info-color);
+}
+
+.stat-value.started {
+  color: var(--warning-color);
+}
+
+.stat-value.finished {
+  color: var(--success-color);
+}
+
+.stat-value.failed {
+  color: var(--danger-color);
+}
+
+/* Tasks Table */
+.tasks-table-container h3 {
+  margin: 0;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.tasks-table th,
+.tasks-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tasks-table th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.tasks-table td {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.task-id {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--info-color);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.status-queued {
+  background: rgba(33, 150, 243, 0.2);
+  color: var(--info-color);
+}
+
+.status-badge.status-started {
+  background: rgba(255, 152, 0, 0.2);
+  color: var(--warning-color);
+}
+
+.status-badge.status-finished {
+  background: rgba(76, 175, 80, 0.2);
+  color: var(--success-color);
+}
+
+.status-badge.status-failed {
+  background: rgba(244, 67, 54, 0.2);
+  color: var(--danger-color);
+}
+
+.no-tasks {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 24px;
+}
+
+.tasks-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect for table rows */
+.tasks-table tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .queue-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tasks-table-container {
+    overflow-x: auto;
+  }
+  
+  .tasks-table {
+    min-width: 600px;
+  }
+}
