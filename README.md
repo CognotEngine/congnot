@@ -2,6 +2,7 @@
 
 Cognot is an open-source, flexible, and extensible AI Workflow Engine focused on AI image generation and video processing. It empowers users to create, execute, and manage complex AI-driven workflows through an intuitive visual interface.
 
+https://github.com/CognotEngine/congnot/blob/main/uploads/QQ20251211-033113.jpg?raw=true
 ## Project Status
 
 🚧 **Under Development** 🚧
