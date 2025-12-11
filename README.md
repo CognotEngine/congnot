@@ -72,6 +72,29 @@ Cognot is currently in active development. We are working diligently to implemen
 - **Intuitive Node Panel**: Search and filter nodes with ease
 - **Real-time Visualization**: Dynamic workflow progress tracking
 
+## Text-to-Image
+- Stable Diffusion v1-5: runwayml/stable-diffusion-v1-5
+- Stable Diffusion XL: stabilityai/stable-diffusion-xl-base-1.0
+- Stable Diffusion 3: stabilityai/stable-diffusion-3-medium
+- Stable Diffusion 3.5: stabilityai/stable-diffusion-3.5-large
+- Stable Cascade: stabilityai/stable-cascade
+- Flux: black-forest-labs/FLUX.1-dev
+## Image-to-Image
+- Stable Diffusion v1-5 (Image-to-Image): runwayml/stable-diffusion-v1-5
+2. Hunyuan Series
+- Text-to-Image
+- Hunyuan DiT: Tencent-Hunyuan/HunyuanDiT-v1.2
+3. Qwen Series
+## Multimodal (Vision-Language)
+- Qwen-VL-Chat: A dialogue model that supports mixed image-text input
+- Text-Only
+- Qwen Text: A text-only dialogue model
+##Model Features
+- Stable Diffusion Series: Widely adopted open-source diffusion models that support diverse image generation tasks
+- hunyuan DiT: A diffusion model developed by Tencent, delivering high-quality image generation capabilities
+- Qwen Series: Large language models developed by Alibaba. Qwen-VL supports image understanding and multimodal interaction
+- All models have been integrated into the Model Cache Manager, which enables efficient model loading and memory management.
+
 ## System Architecture
 
 Cognot adopts a layered architecture designed for flexibility, scalability, and ease of extension:
@@ -187,28 +210,6 @@ Cognot features deep integration with ComfyUI, allowing seamless use of the exte
 3. **KSampler**: Generate latent space representation
 4. **VAEDecode**: Decode into final image
 
-## Project Structure
-
-```
-Cognot/
-├── api/                    # Backend API implementation
-│   ├── gateway/            # API gateway and endpoints
-│   └── endpoints/          # API endpoints
-├── config/                 # Configuration files
-├── core/                   # Core engine implementation
-│   ├── base_node.py        # Node base class
-│   ├── node_registry.py    # Node registry
-│   ├── stable_diffusion_nodes.py  # AI image generation nodes
-│   ├── video_processing_nodes.py  # Video processing nodes
-│   ├── comfyui_adapter.py  # ComfyUI node adapter
-│   ├── comfyui_executor.py # ComfyUI execution engine
-│   └── comfyui_model_manager.py # ComfyUI model manager
-├── frontend/               # React frontend application
-├── tests/                  # Test files
-├── requirements.txt        # Python dependencies
-├── setup.py                # Package installation configuration
-└── README.md               # Project documentation
-```
 
 ## GPU Support
 
