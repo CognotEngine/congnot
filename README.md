@@ -8,10 +8,10 @@ Cognot is an open-source, flexible, and extensible AI Workflow Engine focused on
 
 ## 📢news
    
-December 11, 2025 🙌: Support for HunyuanVideo and Wan 2.2 Video Models
-December 08, 2025 🎠: Added Context Search Node & Optimized User Experience
-December 07, 2025 🎊: Supported Import of ComfyUI-Format Workflows
-December 01, 2025 ✨: Enabled GPU Acceleration for NVIDIA Graphics Cards
+- December 11, 2025 🙌: Support for HunyuanVideo and Wan 2.2 Video Models
+- December 08, 2025 🎠: Added Context Search Node & Optimized User Experience
+- December 07, 2025 🎊: Supported Import of ComfyUI-Format Workflows 
+- December 01, 2025 ✨: Enabled GPU Acceleration for NVIDIA Graphics Cards
 
 ## Project Status
    
