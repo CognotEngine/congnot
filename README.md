@@ -7,8 +7,10 @@ Cognot is an open-source, flexible, and extensible AI Workflow Engine focused on
 <img src="uploads/QQ20251211-033113.jpg" alt="GitHub" >
 ## Project Status
 
-<h1>📢news
-   December 11, 2025 🙌: Support for HunyuanVideo and Wan 2.2 Video Models
+<h1>📢news<h1>
+   
+December 11, 2025 🙌: Support for HunyuanVideo and Wan 2.2 Video Models
+
    
 🚧 **Under Development** 🚧
 
