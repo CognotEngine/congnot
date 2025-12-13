@@ -429,3 +429,120 @@ class LoopNode(BaseNode):
             "results": results,
             "iterations": iterations
         }
+
+@register_node(
+    name="batch_audio_gen",
+    description="Batch Audio Generation Node - Generates multiple audio files from prompts",
+    category="audio",
+    icon="🎵"
+)
+class BatchAudioGenNode(BaseNode):
+    
+    class Inputs(BaseNode.Inputs):
+        audio_prompt_list: list = BaseNode.Inputs.List(description="List of audio generation prompts")
+        audio_model: str = combo(default="facebook/musicgen-small", description="Audio model", options=["facebook/musicgen-small", "facebook/musicgen-medium", "facebook/musicgen-large"])
+        duration: float = slider(default=10.0, min=1.0, max=30.0, step=1.0, description="Duration of each audio in seconds")
+        audio_seed: int = slider(default=42, min=0, max=2147483647, step=1, description="Random seed for audio generation")
+    
+    class Outputs(BaseNode.Outputs):
+        audio_list: list
+        count: int
+        success: bool
+        message: str
+    
+    def __call__(self, audio_prompt_list: list = None, audio_model: str = "facebook/musicgen-small", duration: float = 10.0, audio_seed: int = 42) -> dict:
+        
+        try:
+            import torch
+            from transformers import AutoProcessor, MusicgenForConditionalGeneration
+            import scipy.io.wavfile as wavfile
+            import numpy as np
+            import tempfile
+            import os
+            
+            audio_prompt_list = audio_prompt_list or []
+            
+            if not isinstance(audio_prompt_list, list):
+                return {
+                    "audio_list": [],
+                    "count": 0,
+                    "success": False,
+                    "message": "Input must be a list of audio prompts"
+                }
+            
+            if len(audio_prompt_list) == 0:
+                return {
+                    "audio_list": [],
+                    "count": 0,
+                    "success": False,
+                    "message": "Audio prompt list is empty"
+                }
+            
+            # Initialize the audio generation model
+            processor = AutoProcessor.from_pretrained(audio_model)
+            model = MusicgenForConditionalGeneration.from_pretrained(audio_model)
+            
+            # Set device
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            model.to(device)
+            
+            audio_list = []
+            
+            # Create temporary directory for audio output
+            os.makedirs("uploads/audio", exist_ok=True)
+            
+            # Generate audio for each prompt
+            for i, prompt in enumerate(audio_prompt_list):
+                if not prompt:
+                    continue
+                
+                # Process the prompt
+                inputs = processor(
+                    text=[prompt],
+                    padding=True,
+                    return_tensors="pt"
+                ).to(device)
+                
+                # Generate audio
+                with torch.no_grad():
+                    audio_values = model.generate(
+                        **inputs,
+                        do_sample=True,
+                        guidance_scale=3.0,
+                        max_new_tokens=int(duration * 50),  # Approximate conversion
+                        temperature=1.0,
+                        seed=audio_seed + i  # Unique seed for each audio
+                    )
+                
+                # Save the generated audio
+                sample_rate = model.config.audio_encoder.sampling_rate
+                audio_np = audio_values[0, 0].cpu().numpy()
+                
+                # Normalize audio
+                audio_np = audio_np / np.max(np.abs(audio_np))
+                
+                # Convert to 16-bit PCM
+                audio_np = (audio_np * 32767).astype(np.int16)
+                
+                # Create temporary file
+                temp_audio_path = tempfile.mktemp(suffix=".wav", dir="uploads/audio")
+                wavfile.write(temp_audio_path, sample_rate, audio_np)
+                
+                audio_list.append(temp_audio_path)
+            
+            return {
+                "audio_list": audio_list,
+                "count": len(audio_list),
+                "success": True,
+                "message": f"Successfully generated {len(audio_list)} audio files"
+            }
+            
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return {
+                "audio_list": [],
+                "count": 0,
+                "success": False,
+                "message": f"Error generating audio: {str(e)}"
+            }

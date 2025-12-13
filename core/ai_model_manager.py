@@ -21,7 +21,8 @@ class AIModelManager:
             'clip_vision': 'clip_vision',     # 添加CLIP视觉模型
             'controlnet': 'controlnet',       # 添加ControlNet模型
             'embedding': 'embeddings',        # 添加嵌入模型
-            'upscale': 'upscale_models'       # 添加超分辨率模型
+            'upscale': 'upscale_models',      # 添加超分辨率模型
+            'hunyuan_video': 'hunyuan_video'  # 添加HunyuanVideo模型
         }
     
     def _load_model_config(self) -> Dict[str, Dict[str, str]]:
@@ -57,7 +58,8 @@ class AIModelManager:
             'loras': [os.path.join(uploads_path, "loras")],
             'vae': [os.path.join(uploads_path, "vae")],
             'embeddings': [os.path.join(uploads_path, "embeddings")],
-            'upscale_models': [os.path.join(uploads_path, "upscale_models")]
+            'upscale_models': [os.path.join(uploads_path, "upscale_models")],
+            'hunyuan_video': [os.path.join(uploads_path, "hunyuan_video")]  # 添加HunyuanVideo模型路径
         }
         
         # 从配置文件中加载自定义路径

@@ -68,6 +68,9 @@ class ExecutionQueue:
         self.completed_tasks: int = 0
         self.failed_tasks: int = 0
         
+        # 优化依赖跟踪：task_id -> [依赖此任务的任务列表]
+        self.dependency_graph: Dict[str, List[str]] = {}
+        
         # 回调函数
         self.on_task_start = on_task_start
         self.on_task_complete = on_task_complete
@@ -90,6 +93,12 @@ class ExecutionQueue:
             任务ID
         """
         self.tasks[task.task_id] = task
+        
+        # 构建依赖图
+        for dep in task.dependencies:
+            if dep not in self.dependency_graph:
+                self.dependency_graph[dep] = []
+            self.dependency_graph[dep].append(task.task_id)
         
         # 检查依赖是否满足
         if not task.dependencies or all(dep in self.tasks and self.tasks[dep].status == TaskStatus.COMPLETED for dep in task.dependencies):
@@ -215,17 +224,24 @@ class ExecutionQueue:
                 self.all_tasks_completed.set()
     
     async def _check_dependencies(self, completed_task_id: str) -> None:
-        """检查是否有依赖于已完成任务的任务可以执行"""
-        for task_id, task in self.tasks.items():
-            if task.status == TaskStatus.PENDING and completed_task_id in task.dependencies:
-                
+        """检查是否有依赖于已完成任务的任务可以执行
+        
+        使用依赖图优化：只检查直接依赖于已完成任务的任务
+        """
+        # 获取所有依赖于已完成任务的任务
+        dependent_tasks = self.dependency_graph.get(completed_task_id, [])
+        
+        for task_id in dependent_tasks:
+            task = self.tasks.get(task_id)
+            if task and task.status == TaskStatus.PENDING:
+                # 检查该任务的所有依赖是否都已完成
                 if all(dep in self.tasks and self.tasks[dep].status == TaskStatus.COMPLETED for dep in task.dependencies):
                     # 将任务加入优先级队列
                     heapq.heappush(self.priority_queue, (0, self.priority_counter, task))
                     self.priority_counter += 1
     
     async def _execute_task_logic(self, task: Task) -> Dict[str, Any]:
-        """任务执行的实际逻辑（可以被继承类重写）
+        """任务执行的实际逻辑（使用插件系统执行节点函数）
         
         Args:
             task: 要执行的任务
@@ -233,9 +249,26 @@ class ExecutionQueue:
         Returns:
             任务执行结果
         """
-        # 默认实现，模拟任务执行
-        await asyncio.sleep(0.5)  
-        return {"result": f"Task {task.task_id} completed"}
+        from core.module.plugin_manager import plugin_manager
+        
+        # 获取节点管理器插件API
+        node_manager_api = plugin_manager.get_module_api('node_manager')
+        if not node_manager_api:
+            raise ValueError(f"Node manager plugin not activated")
+        
+        # 获取节点函数
+        node_function = node_manager_api.get_node_function(task.node_type)
+        if not node_function:
+            raise ValueError(f"Node function not found for node type: {task.node_type}")
+        
+        # 执行节点函数
+        result = node_function(**task.inputs)
+        
+        # 如果结果是异步函数，等待执行完成
+        if hasattr(result, '__await__'):
+            result = await result
+        
+        return result
     
     def _all_tasks_processed(self) -> bool:
         """检查是否所有任务都已处理"""

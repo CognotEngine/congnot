@@ -9,6 +9,7 @@ websockets>=11.0  # WebSocket support
 
 # Optional Dependencies (AI功能所需)
 loguru>=0.7.0  # Logging
+python-dotenv>=1.0.0  # Environment variable loading
 
 # Stable Diffusion Dependencies (AI绘图)
 diffusers>=0.26.0  # SD model implementation

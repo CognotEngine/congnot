@@ -6,8 +6,8 @@ import time
 from collections import deque
 from typing import List, Dict, Any, Optional, Callable
 from .graph_parser import Graph, Node
-from .node_registry import get_node_function, get_node_rollback_function
 from .execution_queue import ExecutionQueue, Task, TaskStatus, create_execution_queue
+from core.module.plugin_manager import plugin_manager
 
 class TopologicalSorter:
     
@@ -136,7 +136,11 @@ class GraphExecutor:
                     
                     
                     
-                    node_func = get_node_function(node.type)
+                    # 通过插件系统获取节点函数
+                    node_manager_api = plugin_manager.get_module_api('node_manager')
+                    if not node_manager_api:
+                        raise ValueError("Node manager plugin not activated")
+                    node_func = node_manager_api.get_node_function(node.type)
                     if not node_func:
                         raise ValueError(f"Node function not found for type: {node.type}")
                     
@@ -164,7 +168,11 @@ class GraphExecutor:
                     pass
                 
                 
-                node_func = get_node_function(node.type)
+                # 通过插件系统获取节点函数
+                node_manager_api = plugin_manager.get_module_api('node_manager')
+                if not node_manager_api:
+                    raise ValueError("Node manager plugin not activated")
+                node_func = node_manager_api.get_node_function(node.type)
                 if not node_func:
                     raise ValueError(f"Node function not found for type: {node.type}")
                 
@@ -207,8 +215,11 @@ class GraphExecutor:
                 # 解析节点输入
                 input_values = self._resolve_node_inputs(graph, node, results)
                 
-                # 获取节点执行函数
-                node_func = get_node_function(node.type)
+                # 通过插件系统获取节点执行函数
+                node_manager_api = plugin_manager.get_module_api('node_manager')
+                if not node_manager_api:
+                    raise ValueError("Node manager plugin not activated")
+                node_func = node_manager_api.get_node_function(node.type)
                 if not node_func:
                     raise ValueError(f"Node function not found for type: {node.type}")
                 
@@ -223,24 +234,6 @@ class GraphExecutor:
                 results[node_id] = output_values
                 
                 # 调用节点完成回调
-                if on_node_complete:
-                    on_node_complete(node_id, output_values)
-                
-                
-                node_func = get_node_function(node.type)
-                if not node_func:
-                    raise ValueError(f"Node function not found for type: {node.type}")
-                
-                try:
-                    output_values = node_func(**input_values)
-                except Exception as e:
-                    raise RuntimeError(f"Error executing node {node_id} ({node.type}): {e}")
-                
-                
-                graph.update_node_outputs(node_id, output_values)
-                results[node_id] = output_values
-                
-                
                 if on_node_complete:
                     on_node_complete(node_id, output_values)
     
@@ -342,7 +335,11 @@ class GraphExecutor:
                     input_values = self._resolve_node_inputs(graph, node, results)
                 
                 
-                node_func = get_node_function(node.type)
+                # 通过插件系统获取节点函数
+                node_manager_api = plugin_manager.get_module_api('node_manager')
+                if not node_manager_api:
+                    raise ValueError("Node manager plugin not activated")
+                node_func = node_manager_api.get_node_function(node.type)
                 if not node_func:
                     raise ValueError(f"Node function not found for type: {node.type}")
                 
@@ -407,7 +404,11 @@ class GraphExecutor:
                 continue
             
             
-            rollback_func = get_node_rollback_function(node.type)
+            # 通过插件系统获取回滚函数
+            node_manager_api = plugin_manager.get_module_api('node_manager')
+            if not node_manager_api:
+                continue
+            rollback_func = node_manager_api.get_node_rollback_function(node.type)
             if not rollback_func:
                 continue  
             

@@ -16,7 +16,7 @@ from .ffmpeg_manager import get_ffmpeg_path
 @register_node(
     name="videoLoad",
     description="Video Load Node - Loads a video file and extracts metadata",
-    category="video",
+    category="video_processing",
     icon="🎥"
 )
 class VideoLoadNode(BaseNode):
@@ -82,7 +82,7 @@ class VideoLoadNode(BaseNode):
 @register_node(
     name="extractFrame",
     description="Extract Frame Node - Extracts a specific frame from a video",
-    category="video",
+    category="video_processing",
     icon="🖼️"
 )
 class ExtractFrameNode(BaseNode):
@@ -173,7 +173,7 @@ class ExtractFrameNode(BaseNode):
 @register_node(
     name="videoComposer",
     description="Video Composer Node - Composes frames into a video",
-    category="video",
+    category="video_processing",
     icon="🎬"
 )
 class VideoComposerNode(BaseNode):
@@ -244,7 +244,7 @@ class VideoComposerNode(BaseNode):
 @register_node(
     name="frameIndexManager",
     description="Frame Index Manager Node - Manages frame indices for video processing",
-    category="video",
+    category="video_processing",
     icon="🔢"
 )
 class FrameIndexManagerNode(BaseNode):
@@ -288,7 +288,7 @@ class FrameIndexManagerNode(BaseNode):
 @register_node(
     name="opticalFlowCalculator",
     description="Optical Flow Calculator Node - Calculates optical flow between frames",
-    category="video",
+    category="video_processing",
     icon="🌊"
 )
 class OpticalFlowCalculatorNode(BaseNode):
